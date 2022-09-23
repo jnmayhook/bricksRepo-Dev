@@ -1,0 +1,257 @@
+:root {
+  --black: #222222;
+  --yellow: #f9d004;
+  --blue: #0b91d7;
+  --lightgray: #ededf6;
+  --white: #fff; 
+  --lato: 'Lato', sans-serif;
+  --opensans: 'Open Sans', sans-serif;
+  --robotoslab: 'Roboto Slab', serif;
+  --exo: 'Exo 2', sans-serif;
+}
+
+/* font-family: 'Exo 2', sans-serif;
+font-family: 'Merriweather', serif;
+font-family: 'Roboto', sans-serif; 
+font-family: 'Roboto Slab', serif;*/
+
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--exo);
+}
+.btn-blue {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--blue);
+  --bs-btn-border-color: var(--blue);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #0b5ed7;
+  --bs-btn-hover-border-color: #0a58ca;
+  --bs-btn-focus-shadow-rgb: 49,132,253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #0a58ca;
+  --bs-btn-active-border-color: #0a53be;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #0d6efd;
+  --bs-btn-disabled-border-color: var(--blue);
+}
+a.blue {
+  color:var(--blue);
+  text-decoration: none;
+}
+a.blue:hover {
+  opacity: .8;
+}
+.form-bg {
+  background: linear-gradient(315deg,#444 0,#222 100%) #444;
+}
+.signup p, .login p {
+  font-size: 1.2em;
+}
+
+/* ------------- header component -------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1% 0;
+  background-color: var(--black);
+}
+nav {
+  color: var(--yellow);
+}
+.navbar-brand {
+  color: var(--yellow);
+  font-family: var(--exo);
+}
+.navbar-brand img.logo {
+  width:350px;
+}
+.nav-item {
+  font-family: var(--exo);
+  font-size: 22px;
+}
+.nav-item a {
+  text-decoration: none;
+  color: var(--yellow);
+}
+.nav-item a:hover {
+  opacity: .8;
+}
+.navbar-toggler {
+  color: var(--yellow) !important;
+  font-size: 30px !important;
+}
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%) !important;
+}
+ul.nav-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 0;
+  list-style-type: none;
+}
+ul.nav-icons img {
+  width:35px !important;stroke: blue;
+}
+.navbar-nav .nav-link.active, .navbar-nav .show>.nav-link {
+  color: var(--yellow) !important;
+  font-weight: bold;
+}
+.btn-close {
+  color: var(--yellow) !important;
+}
+.offcanvas-lg {
+  background: var(--black);
+}
+.offcanvas-title {
+  font-family: var(--exo);
+}
+
+/* ------------- footer component -------------- */
+.footer {
+  --bs-bg-opacity: 1;
+  background-color: var(--yellow);
+  padding:20px;
+  color: var(--black);
+  font-family: var(--exo);
+  border-bottom: 1px solid #fbb500;
+}
+.footer li {
+  list-style: none;
+}
+.footer-bg {
+  margin-top: -153px;
+}
+ul.footer-nav {
+  padding: 0;
+  list-style-type: none;
+}
+ul.footer-nav li {
+  border-right: 1px solid black;
+  display: block;
+  
+}
+ul.footer-nav li a {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 18px;
+}
+ul.footer-nav li a:hover {
+  opacity: .7;
+}
+ul.footer-nav li.copyright {
+  border-right: none !important;
+}
+
+
+/* ------------- carousel feature - home -------------- */
+.carousel-caption {
+  top:15%;
+}
+.carousel p {
+  font-family: var(--robotoslab);
+  font-size: 18px;
+  padding: 20px 0;
+  max-width: 80%;
+  line-height: 1.6em;
+}
+.carousel {
+}
+.carousel .logo {
+  width: 300px;
+}
+.slide-one-bg {
+  background: url(../img/hero-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 400px;
+}
+.slide-two-bg {
+  background: url(../img/hero-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 400px;
+}
+
+/* ------------- search results -------------- */
+.card-body {
+  background: linear-gradient(315deg,#444 0,#222 100%) #444;
+  font-family: var(--exo);
+}
+ul.lego-set-details {
+  padding-left: 0px;
+}
+ul.lego-set-details li {
+  list-style: none;
+  padding: 3px;
+  font-size: 18px;
+}
+.lego-set-item .card {
+  border:none;
+  
+}
+.save-set {
+  width: 100%;
+}
+.lego-set-item {
+  padding-left: 0px !important;
+}
+h2.lego-set-header {
+  padding-left: 0px !important;
+}
+.mb-153 {
+  margin-bottom: 153px !important;
+}
+
+/* ------------- login page -------------- */
+.container.login h1 {
+  color: var(--white);
+}
+
+
+/* ------------- signup page -------------- */
+.container.signup h1 {
+  color: var(--white);
+}
+
+/* media queries */
+/* Medium Devices, Desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+  }    
+
+/* Tablets - fonts  */
+@media screen and (max-width: 992px) {
+  .navbar-nav {
+    flex-direction: column !important;
+    margin-top: 30px;
+    }
+  }
+
+
+@media screen and (max-width: 912px) {
+
+}
+
+/* Large smartphones */
+@media screen and (max-width: 768px) {
+
+}
+
+/* Small smartphones */
+@media screen and (max-width: 576px) {
+
+}
