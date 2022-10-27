@@ -1,34 +1,38 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import SetSearchResults from './SetSearchResults';
 import { useLazyQuery } from '@apollo/client';
 import { GET_SET } from '../utils/queries';
+import API from '../utils/API.js'
 
+API.getBrickSet().then(data => {
+  console.log(data)
+})
 const SetSearchForm = () => {
-  const [searchInput, setSearchInput]= useState("")
-  const [ getSet, {loading, data, error} ] = useLazyQuery(GET_SET)
-
-
-
-   const handleFormSubmit = async (event) => {
-       event.preventDefault();
-
+  const [searchInput, setSearchInput] = useState("")
+  const [getSet, { loading, data, error }] = useLazyQuery(GET_SET)
+const [list, setList] = useState([])
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    API.getBrickSet(searchInput).then(async results => {
+      console.log(results)
+      setList(results)
       if (!searchInput) {
-          return false;
+        return false;
       }
       console.log(searchInput)  //correct
       const set = data?.set || []
       try {
-        await getSet ({
-          variables: {Name: searchInput}
+        await getSet({
+          variables: { Name: searchInput }
         });
       } catch (err) {
         console.error(err);
       }
-    };
-    // console.log(set)
-    // setSearchInput("")
-    
-    console.log(data)
+    })
+  };
+  // console.log(set)
+  // setSearchInput("")
+  console.log(data)
 
   return (
     <>
@@ -52,12 +56,13 @@ const SetSearchForm = () => {
         </div>
       </form>
       <div className='container mb-5 mb-153'>
-                <div className="row d-flex">
-                    <SetSearchResults
-                        set={data?.set}
-                    />
-                </div>
-            </div> 
+        <div className="row d-flex">
+          <SetSearchResults
+            set={data?.set}
+            list={list}
+          />
+        </div>
+      </div>
     </>
   );
 };

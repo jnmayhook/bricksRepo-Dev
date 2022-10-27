@@ -16,7 +16,17 @@ const server = new ApolloServer({
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+const axois = require("axios")
 
+
+app.get("/api/brickset/:search", (req, res) => {
+  // console.log("https://brickset.com/api/v3.asmx/getSets?apiKey=3-KWBN-yyT2-PgvaQ&userHash=z2E5qeRuTM&params={query:"+req.params.search+"}")
+  axois.get("https://brickset.com/api/v3.asmx/getSets?apiKey=3-KWBN-yyT2-PgvaQ&userHash=z2E5qeRuTM&params={query:%27"+req.params.search+"%27}")
+    .then(results => {
+      // console.log(results.data.sets)
+      res.json(results.data.sets)
+    })
+})
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
@@ -30,14 +40,14 @@ app.get('/', (req, res) => {
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
-  
+
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     })
   })
-  };
-  
+};
+
 // Call the async function to start the server
-  startApolloServer(typeDefs, resolvers);
+startApolloServer(typeDefs, resolvers);

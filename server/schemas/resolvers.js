@@ -37,6 +37,24 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     }
+    // saveSet: async (parent, { authors, description, title, bookId, image, link }, context) => {
+    //   if (context.user) {
+
+    //     const user = await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       {
+    //         $addToSet: {
+    //           savedBooks: {
+    //             authors, description: description?description:"no description ", title, bookId, image, link
+    //           }
+    //         }
+    //       }
+    //     );
+
+    //     return user;
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
     // searchSets: async (parent, { Name }) => {
     //   return LegoSets.find({ Name });
     // }

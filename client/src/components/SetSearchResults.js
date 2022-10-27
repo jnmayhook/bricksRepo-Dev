@@ -1,6 +1,7 @@
 import React from 'react';
 
-function SetSearchResults({ set }) {
+function SetSearchResults({ set, list }) {
+  console.log(list, "list")
   if (!set) {
     return <></>
   }
